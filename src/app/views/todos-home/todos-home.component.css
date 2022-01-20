@@ -1,0 +1,28 @@
+.btn-success {
+    opacity: 0.5;
+}
+
+.btn-success:hover {
+    opacity: 0.7;
+}
+input[type="checkbox"]:checked+label {
+  text-decoration: line-through;
+  color: rgb(54, 48, 48);
+}
+.fa-times {
+  color: red;
+}
+.fa-check {
+  color: rgb(151, 194, 151);
+}
+.nav-item {
+  margin-right: 5px;
+}
+.bg-secondary:hover {
+  opacity: 0.8
+
+}
+
+.nav-link {
+  padding: 5px;
+}
