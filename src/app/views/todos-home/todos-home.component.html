@@ -3,7 +3,7 @@
         <li class="nav-item bg-secondary mt-1" >
           <a class="nav-link active text-white bg-secondary btn btn-sm" aria-current="page" (click)="getAllTodos()">
             <i class="fas fa-list"></i>
-            All tasks
+            All todos
             </a>
         </li>
         <li class="nav-item bg-secondary mt-1" >
@@ -24,17 +24,20 @@
 
 
 <div class="container">
+  <form #myForm="ngForm">
     <div class="row g-1 align-items-center d-flex justify-content-center pt-1">
-        <div class="col-6">
-            <input class="form-control btn-sm" #todoTitle type="text"  placeholder="Add or Edit your note..." aria-label="Search" [(ngModel)]="title">
-        </div>
-        <div class="col-auto">
-            <button type="submit" class="btn btn-success btn-sm" (click)="addTodo(todoTitle)"> 
-                <i class="fas fa-plus-square"></i>
-                Add Note
-            </button>
-        </div>
-    </div>
+      <div class="col-6">
+          <input class="form-control btn-sm" [(ngModel)]="title" #todoTitle="ngModel" type="text"  placeholder="Add or Edit your note..." name="title"  required>
+      </div>
+      <div class="col-auto">
+          <button type="submit" class="btn btn-success btn-sm" name="submit" [disabled]="myForm.invalid" (click)="addTodo(todoTitle)"> 
+              <i class="fas fa-plus-square"></i>
+              Add todo
+          </button>
+      </div>
+  </div>
+  </form>
+    
 
 </div>
 
@@ -43,7 +46,10 @@
 
     <div *ngIf="todos.length == 0" class="mt-4">
         
-        <p class="alert alert-danger">No tasks found, please add One!</p>
+        <p class="alert alert-danger text-center">
+          <!-- No tasks found, please add One! -->
+          {{alertMsg}}
+        </p>
 
     </div>
 
@@ -64,7 +70,7 @@
                         <i class="fas fa-edit"></i>
                         Edit
                     </button>
-                    <button type="button" class="btn btn-danger btn-sm" (click)="deleteTodo(i)">
+                    <button type="button" class="btn btn-danger btn-sm" (click)="deleteTodo(i, todo.title)">
                         <i class="far fa-trash-alt"></i>
                         Delete
                     </button>

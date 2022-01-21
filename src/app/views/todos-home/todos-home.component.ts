@@ -16,7 +16,7 @@ export class TodosHomeComponent implements OnInit {
   todos:Todo[] = this.todosService.todos
   title:string = ''
   completed:boolean = false
-  checked:boolean = false
+  alertMsg:any = 'No tasks found, please add One! '
 
   addTodo(title:any) {
     this.todosService.addTodo(title.value)
@@ -26,24 +26,33 @@ export class TodosHomeComponent implements OnInit {
  
   }
 
-  deleteTodo(i:number) {
+  deleteTodo(i:number, title:any) {
+    if(confirm("Are you sure to delete: "+title)) {
     this.todosService.deleteTodo(i)
     this.toastr.warning('Todo deleted successfully')
+    }
 
   }
   getAllTodos() {
-    this.todos = this.todosService.getAllTodos()
+      this.todos = this.todosService.getAllTodos()
+      return this.alertMsg = 'No tasks found, please add One! '
+    
+
 
   }
   incompletedTodos() {
     this.todos = this.todosService.incompletedTodos()
+    return this.alertMsg = 'No incompleted todos found! '
+
   }
   completedTodos() {
      this.todos = this.todosService.completedTodos()
+     return this.alertMsg = 'You haven`t completed any todos yet!'
+
+     
   }
   
 
   ngOnInit(): void {
   }
-
 }

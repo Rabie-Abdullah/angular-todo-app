@@ -1,23 +1,40 @@
 <div class="container">
+  <div *ngIf="!todoId" class="mt-4 text-center">
+    <p class="alert alert-danger">todo id not found!</p>
+  </div>
 
-    <div *ngIf="!todoId" class="mt-4 text-center">
-        
-        <p class="alert alert-danger"> todo id not found!</p>
-
+  <form *ngIf="todoId" #myForm="ngForm">
+    <div class="mb-3">
+      <p class="text-center alert alert-success pt-2">Update your todo</p>
+      <label for="todo" class="form-label text-center">{{ todo.title }}</label>
+      <input
+        type="text"
+        class="form-control"
+        id="todo"
+        placeholder="todo title.."
+        name="todo"
+        [(ngModel)]="todo.title"
+        #todoTitle="ngModel"
+        required
+      />
     </div>
-
-
-    <form *ngIf="todoId">
-        <div class="mb-3">
-          <p class="text-center alert alert-success pt-2">Update your todo</p>
-          <label for="todo" class="form-label text-center">{{todo.title}}</label>
-          <input type="text" class="form-control" id="todo" placeholder="todo title.." name="todo" [(ngModel)]="todo.title">
-        </div>
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="checkbox" name="todoCompleted" [(ngModel)]="todo.completed">
-          <label class="form-check-label" for="checkbox">Check for completion!</label>
-        </div>
-        <button type="submit" class="btn btn-primary" (click)="updateTodo()">Submit</button>
-        <button type="submit" class="btn btn-secondary" (click) ="cancel()">Cancel</button>
-      </form>
+    <div class="mb-3 form-check">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="checkbox"
+        name="todoCompleted"
+        [(ngModel)]="todo.completed"
+      />
+      <label class="form-check-label" for="checkbox"
+        >Check for completion!</label
+      >
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="updateTodo()" [disabled]="myForm.invalid">
+      Submit
+    </button>
+    <button type="submit" class="btn btn-secondary" (click)="cancel()">
+      Cancel
+    </button>
+  </form>
 </div>

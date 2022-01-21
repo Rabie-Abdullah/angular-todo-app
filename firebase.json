@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/todos-app",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
