@@ -1,4 +1,7 @@
-# TodosApp
+# TodosApp![Screenshot from 2022-01-21 01-40-47](https://user-images.githubusercontent.com/95626993/150665252-a62a29ce-c2c7-489a-aa8e-11c1352a31d2.png)
+
+app is live on:
+https://todosapp-aca91.web.app/
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
 
