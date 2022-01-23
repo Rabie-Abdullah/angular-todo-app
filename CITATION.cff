@@ -1,0 +1,10 @@
+@software{rabie_abdullah_2022_5894899,
+  author       = {Rabie Abdullah},
+  title        = {Rabie-Abdullah/angular-todo-app: winter 2022},
+  month        = jan,
+  year         = 2022,
+  publisher    = {Zenodo},
+  version      = {v1.0.0},
+  doi          = {10.5281/zenodo.5894899},
+  url          = {https://doi.org/10.5281/zenodo.5894899}
+}
